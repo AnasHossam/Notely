@@ -14,14 +14,27 @@ class NoteContentEditor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QuillEditor.basic(
-      controller: controller,
-      focusNode: focusNode,
-      config: QuillEditorConfig(
-        placeholder: 'Start writing...',
-        embedBuilders: [
-          ImageEmbedBuilder(),
-        ],
+    return Theme(
+      data: Theme.of(context).copyWith(
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: Theme.of(context).primaryColor,
+          selectionColor: Theme.of(context).primaryColor.withValues(alpha: 0.4),
+          selectionHandleColor: Theme.of(context).primaryColor,
+        ),
+      ),
+      child: QuillEditor.basic(
+        controller: controller,
+        focusNode: focusNode,
+        config: QuillEditorConfig(
+          placeholder: 'Start writing...',
+          scrollable: false,
+          autoFocus: false,
+          expands: false,
+          padding: EdgeInsets.zero,
+          embedBuilders: [
+            ImageEmbedBuilder(),
+          ],
+        ),
       ),
     );
   }

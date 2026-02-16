@@ -25,6 +25,7 @@ class Notely extends StatelessWidget {
       ],
       supportedLocales: const [
         Locale('en', 'US'),
+        Locale('ar', 'EG'),
       ],
       home: HomeView(),
       theme: AppTheme.lightTheme,

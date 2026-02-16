@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -15,7 +16,9 @@ class ImageEmbedBuilder extends EmbedBuilder {
     final String imageUrl = embedContext.node.value.data;
     Widget imageWidget;
 
-    if (imageUrl.startsWith('http')) {
+    if (kIsWeb) {
+      imageWidget = Image.network(imageUrl);
+    } else if (imageUrl.startsWith('http')) {
       imageWidget = Image.network(imageUrl);
     } else {
       imageWidget = Image.file(File(imageUrl));

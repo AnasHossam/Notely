@@ -5,6 +5,7 @@ import 'package:notely/core/theme/app_colors.dart';
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
+    primaryColor: AppColors.primaryLightColor,
     scaffoldBackgroundColor: AppColors.backgroundLightColor,
     fontFamily: AppConstants.fontFamily,
     textTheme: const TextTheme(
@@ -51,6 +52,7 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
+    primaryColor: AppColors.primaryDarkColor,
     scaffoldBackgroundColor: AppColors.backgroundDarkColor,
     fontFamily: AppConstants.fontFamily,
     textTheme: const TextTheme(
