@@ -1,23 +1,51 @@
+import 'package:notely/core/utils/image_provider_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:notely/core/helpers/is_dark_theme.dart';
-import 'package:notely/core/theme/app_colors.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:notely/features/profile/managers/user_profile_manager.dart';
+import 'package:notely/features/profile/views/profile_view.dart';
 
-class HomeAppBarProfile extends StatelessWidget {
+class HomeAppBarProfile extends ConsumerWidget {
   const HomeAppBarProfile({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: isDarkTheme(context)
-              ? AppColors.primaryDarkColor
-              : AppColors.primaryLightColor,
-          width: 2,
+  Widget build(BuildContext context, WidgetRef ref) {
+    final profile = ref.watch(userProfileManagerProvider).value;
+    final photoPath = profile?.photoPath;
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ProfileView()),
+        );
+      },
+      child: Container(
+        width: 44,
+        height: 44,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Theme.of(context).primaryColor,
+            width: 2,
+          ),
+          shape: BoxShape.circle,
+          color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
         ),
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          image: AssetImage("assets/images/Anas Hossam.jpg"),
+        child: ClipOval(
+          child: photoPath != null
+              ? ImageProviderUtils.imageFromPath(
+                  photoPath,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Icon(
+                    Icons.person,
+                    color: Theme.of(context).primaryColor,
+                    size: 24,
+                  ),
+                )
+              : Icon(
+                  Icons.person,
+                  color: Theme.of(context).primaryColor,
+                  size: 24,
+                ),
         ),
       ),
     );

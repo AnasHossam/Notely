@@ -40,6 +40,41 @@ class AppTheme {
         color: AppColors.textPrimaryLightColor,
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.backgroundLightColor,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: AppColors.borderLightColor),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: AppColors.borderLightColor),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide:
+            const BorderSide(color: AppColors.primaryLightColor, width: 2),
+      ),
+      labelStyle: const TextStyle(color: AppColors.textSecondaryLightColor),
+      hintStyle: const TextStyle(color: AppColors.textSecondaryLightColor),
+      errorStyle: const TextStyle(color: Colors.red),
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.primaryLightColor,
+      selectionColor: Color(0x4D201F26),
+      selectionHandleColor: AppColors.primaryLightColor,
+    ),
+    snackBarTheme: SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: AppColors.backgroundLightColor,
+      contentTextStyle: const TextStyle(color: AppColors.primaryLightColor),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: AppColors.borderLightColor),
+      ),
+      insetPadding: const EdgeInsets.all(16),
+    ),
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
         iconColor: const WidgetStatePropertyAll(AppColors.iconLightColor),
@@ -86,6 +121,49 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         color: AppColors.backgroundLightColor,
       ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.backgroundDarkColor,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: AppColors.borderDarkColor),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: AppColors.borderDarkColor),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide:
+            const BorderSide(color: AppColors.primaryDarkColor, width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Colors.red, width: 2),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Colors.red, width: 2),
+      ),
+      labelStyle: const TextStyle(color: AppColors.textSecondaryDarkColor),
+      hintStyle: const TextStyle(color: AppColors.textSecondaryDarkColor),
+      errorStyle: const TextStyle(color: Colors.red),
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.primaryDarkColor,
+      selectionColor: Color(0x4DECECFD),
+      selectionHandleColor: AppColors.primaryDarkColor,
+    ),
+    snackBarTheme: SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: AppColors.backgroundDarkColor,
+      contentTextStyle: const TextStyle(color: AppColors.primaryDarkColor),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: AppColors.borderDarkColor),
+      ),
+      insetPadding: const EdgeInsets.all(16),
     ),
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(

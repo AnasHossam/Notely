@@ -3,8 +3,13 @@ import 'package:notely/core/helpers/is_dark_theme.dart';
 import 'package:notely/core/theme/app_colors.dart';
 
 class HomeSectionContainer extends StatelessWidget {
-  const HomeSectionContainer({super.key, this.isSelected = false});
+  const HomeSectionContainer({
+    super.key,
+    required this.label,
+    this.isSelected = false,
+  });
 
+  final String label;
   final bool isSelected;
 
   @override
@@ -42,7 +47,7 @@ class HomeSectionContainer extends StatelessWidget {
             ],
           ),
           child: Text(
-            'All Notes',
+            label,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: isSelected
                       ? Colors.white

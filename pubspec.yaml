@@ -36,24 +36,52 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_quill: ^11.5.0
+  flutter_riverpod: ^3.0.3
   flutter_staggered_grid_view: ^0.7.0
   hive_ce: ^2.19.3
   hive_ce_flutter: ^2.3.4
   hooks_riverpod: ^3.0.3
   image_picker: ^1.2.1
   intl: ^0.20.2
+  pdf: ^3.11.3
+  printing: ^5.14.2
   riverpod_annotation: ^3.0.3
   riverpod_lint: ^3.0.3
   url_launcher: ^6.3.2
   uuid: ^4.5.2
+  path_provider: ^2.1.2
+  path: ^1.9.0
 
 dev_dependencies:
   build_runner: ^2.4.8
+  flutter_launcher_icons: ^0.14.4
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
   hive_ce_generator: ^1.9.3
   riverpod_generator: ^3.0.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/app_icon.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/images/app_icon.png"
+    background_color: "#FDFDFD"
+    theme_color: "#8B5CF6"
+  windows:
+    generate: true
+    image_path: "assets/images/app_icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/app_icon.png"
+  linux:
+    generate: true
+    image_path: "assets/images/app_icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -92,3 +120,11 @@ flutter:
           weight: 700
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+flutter_assets:
+  assets_path: assets/images/
+  output_path: lib/core/utils/
+  filename: app_images.dart
+  field_prefix: null
+flutter_intl:
+  enabled: true

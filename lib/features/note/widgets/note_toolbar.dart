@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 
+import 'package:notely/core/utils/file_utils.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:image_picker/image_picker.dart';
@@ -39,12 +41,13 @@ class _NoteToolbarState extends State<NoteToolbar> {
       final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
       if (image != null) {
+        final savedPath = await FileUtils.saveImageToAppDirectory(image);
         final index = widget.controller.selection.baseOffset;
         final length = widget.controller.selection.extentOffset - index;
 
         widget.controller.replaceText(index, length, '\n', null);
         widget.controller
-            .replaceText(index + 1, 0, BlockEmbed.image(image.path), null);
+            .replaceText(index + 1, 0, BlockEmbed.image(savedPath), null);
         widget.controller.replaceText(index + 2, 0, '\n', null);
 
         widget.controller.updateSelection(
